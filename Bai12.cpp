@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <stack>
 struct Node
 {
     int data;
@@ -52,7 +52,32 @@ void addTree(Tree &t, Node *p)
     }
 }
 
+void printTree(Tree t)
+{
+    std::stack<Node *> s;
+    Node *p = t.pRoot;
+    while ((p != nullptr) || (s.empty() == false))
+    {
+        while (p != nullptr)
+        {
+            s.push(p);
+            p = p->pLeft;
+        }
+        p = s.top();
+        s.pop();
+        std::cout << p->data << " ";
+        p = p->pRight;
+    }
+}
+
 int main()
 {
     Tree t;
+    initTree(t);
+    addTree(t, initNode(10));
+    addTree(t, initNode(9));
+    addTree(t, initNode(11));
+    addTree(t, initNode(13));
+    printTree(t);
+    return 0;
 }
