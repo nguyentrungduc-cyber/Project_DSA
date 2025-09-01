@@ -85,16 +85,62 @@ bool findValue(Tree t, int x)
     return false;
 }
 
+int sumTree(Tree t)
+{
+    int sum = 0;
+    std::stack<Node *> s;
+    Node *p = t.pRoot;
+    while (p != nullptr || s.empty() == false)
+    {
+        while (p != nullptr)
+        {
+            s.push(p);
+            p = p->pLeft;
+        }
+        p = s.top();
+        s.pop();
+        sum += p->data;
+        p = p->pRight;
+    }
+    return sum;
+}
+
+int accountLeaves(Tree t)
+{
+    int account = 0;
+    std::stack<Node *> s;
+    Node *p = t.pRoot;
+    while (p != nullptr || s.empty() == false)
+    {
+        while (p != nullptr)
+        {
+            s.push(p);
+            p = p->pLeft;
+        }
+        p = s.top();
+        s.pop();
+        if (((p->pLeft == nullptr) && (p->pRight == nullptr)))
+            account++;
+        p = p->pRight;
+    }
+    return account;
+}
+
 int main()
 {
     Tree t;
     initTree(t);
+    addTree(t, initNode(30));
+    addTree(t, initNode(20));
     addTree(t, initNode(10));
+    addTree(t, initNode(19));
+    addTree(t, initNode(21));
     addTree(t, initNode(9));
     addTree(t, initNode(11));
-    addTree(t, initNode(13));
-    // printTree(t);
-    std::cout << findValue(t, 9);
-    std::cout << findValue(t, 20);
+    printTree(t);
+    // std::cout << findValue(t, 9);
+    // std::cout << findValue(t, 20);
+    // std::cout << sumTree(t);
+    std::cout << accountLeaves(t);
     return 0;
 }
