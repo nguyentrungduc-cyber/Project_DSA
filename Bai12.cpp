@@ -70,6 +70,21 @@ void printTree(Tree t)
     }
 }
 
+bool findValue(Tree t, int x)
+{
+    Node *p = t.pRoot;
+    while (p != nullptr)
+    {
+        if (p->data == x)
+            return true;
+        else if (p->data > x)
+            p = p->pLeft;
+        else
+            p = p->pRight;
+    }
+    return false;
+}
+
 int main()
 {
     Tree t;
@@ -78,6 +93,8 @@ int main()
     addTree(t, initNode(9));
     addTree(t, initNode(11));
     addTree(t, initNode(13));
-    printTree(t);
+    // printTree(t);
+    std::cout << findValue(t, 9);
+    std::cout << findValue(t, 20);
     return 0;
 }
