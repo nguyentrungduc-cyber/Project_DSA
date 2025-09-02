@@ -89,7 +89,6 @@ void printTree(const Tree &t)
     }
 }
 
-
 bool findValue(Tree t, int x)
 {
     Node *p = t.pRoot;
@@ -172,17 +171,16 @@ int main()
 {
     Tree t;
     initTree(t);
-    // addTree(t, initNode(30));
-    // addTree(t, initNode(20));
-    // addTree(t, initNode(10));
-    // addTree(t, initNode(19));
-    // addTree(t, initNode(21));
-    // addTree(t, initNode(9));
-    // addTree(t, initNode(11));
-    srand(time(0));
-    addTreeRandom(t);
+    addTree(t, initNode(30));
+    addTree(t, initNode(20));
+    addTree(t, initNode(10));
+    addTree(t, initNode(19));
+    addTree(t, initNode(21));
+    addTree(t, initNode(9));
+    addTree(t, initNode(11));
+    // srand(time(0));
+    // addTreeRandom(t);
     printTree(t);
-    std::cout << std::endl;
     // std::cout << findValue(t, 9);
     // std::cout << findValue(t, 20);
     // std::cout << sumTree(t);
