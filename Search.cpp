@@ -82,5 +82,6 @@ int main()
     int *array = nullptr;
     taoMang(array, n);
     xuatMang(array, n);
+    delete[] array;
     return 0;
 }
