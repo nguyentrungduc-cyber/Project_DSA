@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 bool binarySearch(int array[], int n, int value)
 {
@@ -34,10 +36,51 @@ bool interpolationSearch(int array[], int n, int value)
     return true;
 }
 
+int soLuong()
+{
+    // [30; 50]
+    return 30 + rand() % (50 - 30 - 1);
+}
+
+int giaTri()
+{
+    // [100; 999]
+    return 100 + rand() % (999 - 100 + 1);
+}
+
+void taoMang(int *&array, int &n)
+{
+    n = soLuong();
+    array = new int[n];
+    srand(time(0));
+    do
+    {
+        array[0] = giaTri();
+    } while (array[0] > 130);
+    for (int i = 1; i < n; i++)
+    {
+        do
+        {
+            array[i] = giaTri();
+        } while ((array[i] - array[i - 1]) > 15);
+    }
+}
+
+void xuatMang(int array[], int n)
+{
+
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << array[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
 int main()
 {
-    int array[] = {1, 2, 3, 4, 5};
-    int n = 5;
-    std::cout << "Tim 5(1): " << interpolationSearch(array, n, 5);
+    int n;
+    int *array = nullptr;
+    taoMang(array, n);
+    xuatMang(array, n);
     return 0;
 }
