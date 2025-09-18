@@ -1,3 +1,6 @@
+// Nhập số cho đến khi xuất hiện -1
+// Tìm số lần phần tử xuất hiện nhiều nhất
+
 #include <iostream>
 #include <vector>
 
@@ -7,20 +10,14 @@ void Input(std::vector<int> &v)
     do
     {
         std::cin >> giaTri;
-        if (giaTri != -1) // cần kiểm tra trước khi push
-           v.push_back(giaTri);
+        if (giaTri != -1) // cần kiểm tra trước khi push, chỉ quan trọng khi output ko cần -1
+            v.push_back(giaTri);
     } while (giaTri != -1); // lưu ý ";"
 }
 
 void Find(const std::vector<int> &v)
 {
-    if (v.empty()) {
-        std::cout << "NotFound";
-        return;
-    }
-
-    std::vector<int> dem(v.size(), 0); // dùng "()" thay vì "[]"
-
+    std::vector<int> dem(v.size(), 0); // dùng "()" thay vì "[]", cần thêm kích thước do không push mà gán luôn
     // Đếm số lần xuất hiện
     for (int i = 0; i < v.size(); i++)
     {
@@ -47,8 +44,7 @@ void Find(const std::vector<int> &v)
 
     if (demMax > 1)
     {
-        std::cout << "Phan tu xuat hien nhieu nhat: " 
-                  << v[viTri] << " (so lan: " << demMax << ")";
+        std::cout << v[viTri];
     }
     else if (demMax == 1)
         std::cout << "NotFound";
