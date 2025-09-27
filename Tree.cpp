@@ -177,6 +177,7 @@ int main()
     addTree(t, initNode(19));
     addTree(t, initNode(21));
     addTree(t, initNode(9));
+    addTree(t, initNode(9));
     addTree(t, initNode(11));
     addTree(t, initNode(12));
     // srand(time(0));

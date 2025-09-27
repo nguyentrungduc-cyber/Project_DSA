@@ -16,7 +16,7 @@ bool binarySearch(int array[], int n, int value)
         else if (value < array[M])
             R = M - 1;
     }
-    return true;
+    return false;
 }
 
 bool interpolationSearch(int array[], int n, int value)
@@ -33,7 +33,7 @@ bool interpolationSearch(int array[], int n, int value)
         else if (value < array[M])
             R = M - 1;
     }
-    return true;
+    return false;
 }
 
 int soLuong()

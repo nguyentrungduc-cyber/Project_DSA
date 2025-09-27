@@ -1,6 +1,8 @@
-// Nhập số cho đến khi xuất hiện -1, lưu ý -1 không xuất hiện trong input
+// Nhập số cho đến khi xuất hiện -1, lưu ý -1 không xuất hiện trong output
 // Cho sẵn input/ output -> code sao cho y chang
-
+// output 1: hiện index xuất hiện đầu tiên
+// output 2: hiện index tất cả
+// lưu ý: NotFound chỉ xuất hiện một lần
 
 #include <iostream>
 #include <vector>
